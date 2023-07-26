@@ -1,12 +1,11 @@
 const divContainerCards = document.querySelector("#cards");
-
+const maxCharactersToShow = 100;
 
 export const createCards = ( articlesWikipedia = [] ) => {
 
     for (let i = 0; i < articlesWikipedia.length ; i++) {
         // Destructurar data de la API
-        const { normalizedtitle, description, content_urls } = articlesWikipedia[i];
-        console.log(normalizedtitle, description);
+        const { normalizedtitle, extract, content_urls } = articlesWikipedia[i];
     
         const divContainer = document.createElement("div");
         const divCardBody = document.createElement("div");
@@ -23,7 +22,7 @@ export const createCards = ( articlesWikipedia = [] ) => {
 
         // Agregar texto dinamico
         titleCard.textContent = normalizedtitle;
-        paragraphCard.textContent = description;
+        paragraphCard.textContent = extract.slice(0,maxCharactersToShow) + "...";
         linkCard.textContent = "Ir al articulo";
 
         // Opciones para el link

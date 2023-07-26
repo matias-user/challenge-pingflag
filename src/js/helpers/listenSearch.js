@@ -1,3 +1,4 @@
+import { cleanCards } from "./cleanCards.js";
 import { createCards } from "./createCards.js";
 import { getData } from "./getData.js";
 import { showLoader } from "./showLoader.js";
@@ -13,9 +14,13 @@ export const listenSearch = () => {
         
         const valueInput = searchInput.value;
         if( valueInput.length > minLettersToSearch){
+            // Limpiar cards del DOM. 
+            cleanCards();
+            
             showLoader();
             const articles = await getData(valueInput);
             showLoader();
+
             createCards( articles );
         }
 
