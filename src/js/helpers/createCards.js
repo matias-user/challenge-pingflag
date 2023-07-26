@@ -1,18 +1,40 @@
 const divContainerCards = document.querySelector("#cards");
 
 
-const createCards = () => {
-    // <div class="card" style="width: 18rem;">
-    //     <img src="..." class="card-img-top" alt="...">
-    //         <div class="card-body">
-    //             <h5 class="card-title">Card title</h5>
-    //             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    //             <a href="#" class="btn btn-primary">Go somewhere</a>
-    //         </div>
-    // </div>
+export const createCards = ( articlesWikipedia = [] ) => {
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < articlesWikipedia.length ; i++) {
+        // Destructurar data de la API
+        const { normalizedtitle, description, content_urls } = articlesWikipedia[i];
+        console.log(normalizedtitle, description);
+    
+        const divContainer = document.createElement("div");
+        const divCardBody = document.createElement("div");
+        const titleCard = document.createElement("h5");
+        const paragraphCard = document.createElement("p");
+        const linkCard = document.createElement("a");
 
+        // Agregando las clases de bootstrap
+        divContainer.classList.add("card","col-12","col-md-2","col-sm-4");
+        divCardBody.classList.add("card-body","w-75");
+        titleCard.classList.add("card-title");
+        paragraphCard.classList.add("card-text");
+        linkCard.classList.add("card-link");
 
+        // Agregar texto dinamico
+        titleCard.textContent = normalizedtitle;
+        paragraphCard.textContent = description;
+        linkCard.textContent = "Ir al articulo";
+
+        // Opciones para el link
+        linkCard.href = content_urls.desktop.page;
+        linkCard.target = "__blank";
+
+        divCardBody.appendChild(titleCard);
+        divCardBody.appendChild(paragraphCard);
+        divCardBody.appendChild(linkCard);
+        divContainer.appendChild( divCardBody );
+        
+        divContainerCards.appendChild( divContainer );
     }
 };

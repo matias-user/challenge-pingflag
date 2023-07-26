@@ -1,4 +1,8 @@
 import { getData } from "./helpers/getData.js";
-import  "./helpers/createCards.js"
+import  { createCards } from "./helpers/createCards.js"
 
-getData("api");
+document.addEventListener("DOMContentLoaded", async() => {
+    const articles = await getData("api");
+    createCards( articles );
+
+});
