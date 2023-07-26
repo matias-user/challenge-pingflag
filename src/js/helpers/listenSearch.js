@@ -1,11 +1,12 @@
 import { cleanCards } from "./cleanCards.js";
 import { createCards } from "./createCards.js";
 import { getData } from "./getData.js";
-import { showLoader } from "./showLoader.js";
 
 const searchInput = document.querySelector("#searchInput");
 const buttonSearch = document.querySelector("#search");
 const minLettersToSearch = 2;
+
+const urlApi = "https://en.wikipedia.org/api/rest_v1/page/related";
 
 export const listenSearch = () => {
 
@@ -16,10 +17,7 @@ export const listenSearch = () => {
         if( valueInput.length > minLettersToSearch){
             // Limpiar cards del DOM. 
             cleanCards();
-            
-            showLoader();
-            const articles = await getData(valueInput);
-            showLoader();
+            const articles = await getData(urlApi, valueInput);
 
             createCards( articles );
         }

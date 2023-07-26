@@ -1,12 +1,12 @@
-export const getData = async( titleToSearch = "",) => {
+export const getData = async( url= "", titleToSearch = "") => {
     
     try {
-        const { data } = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/related/${titleToSearch}`);
+        const { data } = await axios.get(`${url}/${titleToSearch}`);
         const { pages } = data;
         console.log(pages);
         return pages;
         
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
     }
 };
