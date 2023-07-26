@@ -15,7 +15,7 @@ export const createCards = ( articlesWikipedia = [] ) => {
         const linkCard = document.createElement("a");
 
         // Agregando las clases de bootstrap
-        divContainer.classList.add("card","col-12","col-md-2","col-sm-4");
+        divContainer.classList.add("card","col-12","col-md-3","col-sm-4");
         divCardBody.classList.add("card-body","w-75");
         titleCard.classList.add("card-title");
         paragraphCard.classList.add("card-text");
