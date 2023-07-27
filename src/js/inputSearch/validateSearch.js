@@ -1,5 +1,6 @@
 const minLettersToSearch = 3;
 
+// Agregar clase de bootstrap si hay error, si no quitar.
 export const validateSearch = ( textInput = "", searchInput = null) => {
     if( textInput.length < minLettersToSearch && searchInput != null ){
         searchInput.classList.add("is-invalid");

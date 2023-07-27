@@ -15,11 +15,12 @@ export const listenSearch = () => {
         e.preventDefault();
 
         const textInput = searchInput.value;
-        // Limpiar cards del DOM. 
         if( validateSearch( textInput, searchInput )  ){
             showSpinner();
+            // Limpiar cards del DOM. 
             cleanCards();
             const articles = await getDataWikipedia(urlApi, textInput);
+            // Texto de no resultados si no existen articulos con aquel tópico
             if( !articles ) showNotFoundResults();
             createCards(articles);
             showSpinner();
