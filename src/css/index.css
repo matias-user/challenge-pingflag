@@ -7,4 +7,5 @@
 }
 .card{
     max-width: 22rem;
+    transition: .3s ease-out;
 }

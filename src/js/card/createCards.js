@@ -26,7 +26,7 @@ export const createCards = ( articlesWikipedia = [] ) => {
         titleCard.textContent = normalizedtitle;
         // Mostrar un extrato de hasta 100 caracteres
         paragraphCard.textContent = extract.slice(0,maxCharactersToShow) + "...";
-        linkCard.textContent = "Ir al articulo";
+        linkCard.textContent = "Ir a articulo";
 
         // Opciones para el link
         linkCard.href = content_urls.desktop.page;
