@@ -1,8 +1,10 @@
+import { cleanCards } from "./cleanCards.js";
+
 const divContainerCards = document.querySelector("#cards");
 const maxCharactersToShow = 100;
 
 export const createCards = ( articlesWikipedia = [] ) => {
-
+    cleanCards();
     for (let i = 0; i < articlesWikipedia.length ; i++) {
         // Destructurar data de la API
         const { normalizedtitle, extract, content_urls } = articlesWikipedia[i];
@@ -15,13 +17,14 @@ export const createCards = ( articlesWikipedia = [] ) => {
 
         // Agregando las clases de bootstrap
         divContainer.classList.add("card","col-6","col-md-4","col-sm-6");
-        divCardBody.classList.add("card-body","w-75");
+        divCardBody.classList.add("card-body",);
         titleCard.classList.add("card-title");
         paragraphCard.classList.add("card-text");
         linkCard.classList.add("card-link");
 
-        // Agregar texto dinamico
+        // Agregar texto dinámico
         titleCard.textContent = normalizedtitle;
+        // Mostrar un extrato de hasta 100 caracteres
         paragraphCard.textContent = extract.slice(0,maxCharactersToShow) + "...";
         linkCard.textContent = "Ir al articulo";
 

@@ -15,8 +15,11 @@
   <main class="container-xl">
     <div class="row justify-content-center d-flex">
       <h1 class="text-center">WIKIPEDIA API</h1>
-      <div class="col-md-6 col-auto mt-3">
+      <div class="col-md-6 col-auto mt-3 has-validation">
         <input type="text" class="form-control" id="searchInput" placeholder="Ingresa un término de busqueda">
+        <div class="invalid-feedback">
+          Debes ingresar un término válido y mayor a 2 caracteres.
+        </div>
       </div>
       <div class="col-auto mt-3">
         <button id="search" type="submit" class="btn btn-primary mb-3">Buscar</button>

@@ -1,4 +1,4 @@
-export const getData = async( url= "", titleToSearch = "") => {
+export const getDataWikipedia = async( url= "", titleToSearch = "") => {
     
     try {
         const { data } = await axios.get(`${url}/${titleToSearch}`);
