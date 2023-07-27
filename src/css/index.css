@@ -4,3 +4,10 @@
 .mostrar{
     display: block;
 }
+.spinner{
+    width: 3.5rem;
+    height: 3.5rem;
+}
+.card{
+    max-width: 25rem;
+}

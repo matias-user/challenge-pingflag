@@ -1,6 +1,7 @@
 import { cleanCards } from "./cleanCards.js";
 import { createCards } from "./createCards.js";
 import { getData } from "./getData.js";
+import { showSpinner } from "./showSpinner.js";
 
 const searchInput = document.querySelector("#searchInput");
 const buttonSearch = document.querySelector("#search");
@@ -16,10 +17,13 @@ export const listenSearch = () => {
         const valueInput = searchInput.value;
         if( valueInput.length > minLettersToSearch){
             // Limpiar cards del DOM. 
-            cleanCards();
+            // cleanCards();
+            showSpinner();
             const articles = await getData(urlApi, valueInput);
 
             createCards( articles );
+            showSpinner();
+
         }
 
     });
