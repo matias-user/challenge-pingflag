@@ -1,11 +1,22 @@
 .ocultar{
-    display: none;
+    display: none !important;
 }
 .spinner{
     width: 3.5rem;
     height: 3.5rem;
+    margin: 0 auto;
+    display: block;
 }
-.card{
+.card-tamanio{
     max-width: 22rem;
     transition: .3s ease-out;
+}
+.img-logo{
+    max-width: 15rem;
+}
+main{
+    min-height: calc(100vh - 8rem);
+}
+footer{
+    height: 5rem;   
 }

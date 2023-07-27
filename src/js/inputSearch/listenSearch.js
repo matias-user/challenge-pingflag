@@ -1,5 +1,6 @@
 import { cleanCards, createCards } from "../card/index.js";
 import { getDataWikipedia } from "../data/getDataWikipedia.js";
+import { showNotFoundResults } from "../helpers/showNotFoundResults.js";
 import { showSpinner } from "../helpers/showSpinner.js";
 import { validateSearch } from "./validateSearch.js";
 
@@ -17,7 +18,9 @@ export const listenSearch = () => {
         // Limpiar cards del DOM. 
         if( validateSearch( textInput, searchInput )  ){
             showSpinner();
+            cleanCards();
             const articles = await getDataWikipedia(urlApi, textInput);
+            if( !articles ) showNotFoundResults();
             createCards(articles);
             showSpinner();
         }
