@@ -1,7 +1,7 @@
-import { cleanCards } from "./cleanCards.js";
-import { createCards } from "./createCards.js";
-import { getData } from "./getData.js";
-import { showSpinner } from "./showSpinner.js";
+import { cleanCards, createCards } from "../card/index.js";
+// import { createCards } from "../card/createCards.js";
+import { getData } from "../data/getData.js";
+import { showSpinner } from "../helpers/showSpinner.js";
 
 const searchInput = document.querySelector("#searchInput");
 const buttonSearch = document.querySelector("#search");
